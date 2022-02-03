@@ -1,0 +1,14 @@
+.dMApp-group {
+  display: flex;
+  justify-content: space-between;
+
+  .day {
+    width: 20%;
+  }
+  .month {
+    width: 45%;
+  }
+  .year {
+    width: 25%;
+  }
+}

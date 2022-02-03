@@ -1,0 +1,14 @@
+.mapp-select {
+  position: relative;
+  width: 100%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+
+  .bSBwaw {
+    position: absolute;
+    right: 14px;
+    pointer-events: none;
+    color: #878787;
+  }
+}

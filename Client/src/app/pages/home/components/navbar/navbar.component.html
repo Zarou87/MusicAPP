@@ -1,0 +1,46 @@
+<div id="navbar" class="" [ngClass]="{'open': isOpen }">
+    <nav class="navbar-container">
+        <div type="button" class="me-auto" (click)="eventToggle()" id="nav-icon-toggle" [attr.aria-label]="actionName">
+            <span></span>
+        </div>
+        <a href="/" class="home-link">
+            <div class="navbar-logo"></div>
+            MusicApp
+        </a>
+        <div class="navbar-menu">
+            <div class="nav-gd-main">
+                <ul class="nav-gd-items">
+                    <li class="nav-gd-item">
+                        <a class="nav-gd-link" href="#">
+                            <span class="nav-gd-link-text">Premium</span>
+                        </a>
+                    </li>
+                    <li class="nav-gd-item">
+                        <a class="nav-gd-link" href="#">
+                            <span class="nav-gd-link-text">Asistencia</span>
+                        </a>
+                    </li>
+                    <li class="nav-gd-item">
+                        <a class="nav-gd-link" href="#">
+                            <span class="nav-gd-link-text">Descargar</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-gd-extension">
+                <ul class="nav-gd-items">
+                    <li class="nav-gd-item">
+                        <a class="nav-gd-link" [routerLink]="['/sign-up']">
+                            <span class="nav-gd-link-text">Registrarse</span>
+                        </a>
+                    </li>
+                    <li class="nav-gd-item">
+                        <a class="nav-gd-link" [routerLink]="['/login']">
+                            <span class="nav-gd-link-text">Iniciar sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

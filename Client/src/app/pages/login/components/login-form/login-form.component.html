@@ -1,0 +1,51 @@
+<form [formGroup]="loginForm" (submit)="onSubmit()">
+
+    <div class="form-group">
+        <label>Dirección de correo o nombre de usuario</label>
+        <input 
+            type="text" 
+            class="iMAppA" 
+            [class.invalid]="username!.invalid && (username!.dirty || username!.touched)"
+            formControlName="username" 
+            placeholder="Dirección de correo o nombre de usuario">
+        <app-mapp-label-error 
+            [condition]="username!.invalid && (username!.dirty || username!.touched)"
+            [iconType]="1">
+                Escribe el nombre de usuario o correo electrónico que usas para MusicApp.
+        </app-mapp-label-error>
+    </div>
+
+    <div class="form-group">
+        <label>Contraseña</label>
+        <input 
+            type="password" 
+            class="iMAppA" 
+            [class.invalid]="password!.invalid && (password!.dirty || password!.touched)"
+            formControlName="password" 
+            placeholder="Contraseña">
+        <app-mapp-label-error 
+            [condition]="password!.invalid && (password!.dirty || password!.touched)"
+            [iconType]="1">
+            Por favor, introduce tu contraseña.
+        </app-mapp-label-error>
+    </div>
+
+    <a>¿Se te ha olvidado la contraseña?</a>
+
+    <div class="group-rs">
+        <div class="form-check">
+            <input class="form-check-input" formControlName="rememberUser" type="checkbox" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Recuérdame
+            </label>
+        </div>
+        <div>
+            <button type="submit" class="btn-primary">
+                <div class="btn-container">
+                    <p class="bMApp giKhHg">Iniciar sessión</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+</form>

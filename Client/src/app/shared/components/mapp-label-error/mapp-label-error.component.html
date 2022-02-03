@@ -1,0 +1,8 @@
+<div *ngIf="condition" class="form-group eIMApp">
+    <p class="text-danger">
+        <fa-icon *ngIf="iconType === 0" [icon]="error"></fa-icon>
+        <fa-icon *ngIf="iconType === 1" [icon]="warning"></fa-icon>
+        <ng-content></ng-content>
+        
+    </p>
+</div>
