@@ -1,0 +1,26 @@
+.mapp-alert {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 10px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  color: white;
+}
+
+.danger {
+  background-color: #e91429;
+}
+
+.success {
+  background-color: #1ed760;
+}
+
+.warning {
+  background-color: yellow;
+}
+
+.info {
+  background-color: white;
+}

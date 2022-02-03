@@ -1,0 +1,52 @@
+
+<div class="login-head">
+    <img src="assets/images/MusicApp-logo.png"/>
+</div>
+<div class="login-body">
+    <div class="login-container">
+        <p>Para continuar, inicia sesión en MusicApp.</p>
+        <app-mapp-alert *ngIf="displayAlert" class="w-100" [type]="'danger'">
+            <fa-icon class="iconAMApp" [icon]="iAlertDanger"></fa-icon>
+            <p>Nombre de usuario o contraseña incorrectos.</p>
+        </app-mapp-alert>
+        <button class="ext-signin fbAMapp" (click)="facebookLogin()">
+            <fa-icon class="iconAMApp" [icon]="iFacebook"></fa-icon>
+            <p class="giKhHg">
+                Continuar con Facebook
+            </p>
+        </button>
+        <button class="ext-signin aAMapp" (click)="appleLogin()">
+            <fa-icon class="iconAMApp" [icon]="iApple"></fa-icon>
+            <p class="giKhHg">
+                Continuar con Apple
+            </p>
+        </button>
+    
+        <button class="ext-signin gAMapp+" (click)="googleLogin()">
+            <fa-icon class="iconAMApp" [icon]="iGoogle"></fa-icon>
+            <p class="giKhHg">
+                Continuar con Google
+            </p>
+        </button>
+        <div class="eNpoUx">
+            <hr class="eUplwz"/>
+            <span class="kdiUmk">o</span>
+            <hr class="eUplwz"/>
+        </div>
+        <div class="login-form">
+            <app-login-form (userEventEmiter)="login($event)"></app-login-form>
+        </div>
+        <div class="eNpoUx">
+            <hr class="eUplwz"/>
+        </div>
+        <div class="signup-section">
+            <p class="izDpgk">¿No tienes cuenta?</p>
+            <button class="ext-signin gAMapp" (click)="routesignUp()">
+                <p class="giKhHg">
+                    Suscríbete a MusicApp
+                </p>
+            </button>
+        </div>
+    </div>
+</div>
+

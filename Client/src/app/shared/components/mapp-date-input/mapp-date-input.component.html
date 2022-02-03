@@ -1,0 +1,27 @@
+<div [formGroup]="dateForm" class="dMApp-group">
+    <div class="day">
+        <label>Día</label>
+        <input 
+            type="text" 
+            class="iMAppA" 
+            [class.invalid]="day!.invalid && (day!.dirty || day!.touched)"
+            formControlName="day"
+            maxlength="2"
+            placeholder="DD">
+    </div>
+    <div class="month">
+        <label>Mes</label>
+        <mapp-select [items]="months" [formGroupParent]="dateForm" [controlName]="'month'" [defaultValue]="dateFormValues.month"></mapp-select>
+    </div>
+    <div class="year">
+        <label>Año</label>
+        <input 
+            type="text" 
+            class="iMAppA" 
+            [class.invalid]="year!.invalid && (year!.dirty || year!.touched)"
+            formControlName="year"
+            maxlength="4"
+            placeholder="YYYY">
+
+    </div>
+</div>

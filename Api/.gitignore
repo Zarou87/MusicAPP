@@ -1,0 +1,5 @@
+# Account key and secret keys
+/conf.js
+
+# dependencies
+/node_modules

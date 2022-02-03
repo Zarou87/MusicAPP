@@ -1,0 +1,40 @@
+.tsufMApp {
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0px 0px 1em;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: inherit;
+  text-align: center;
+}
+
+.birthday {
+  padding-bottom: 24px;
+}
+
+.signup-footer {
+  text-align: center;
+
+  .fvxMUg {
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    padding: 0px 0px 1em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: inherit;
+    a {
+      color: #ffa420; //Principal
+      text-decoration: underline;
+      &:hover {
+        color: #ffb02f;
+      }
+    }
+  }
+}

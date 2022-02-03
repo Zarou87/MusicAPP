@@ -1,0 +1,10 @@
+<div [formGroup]="formGroupParent" class="mapp-select">
+    <select class="sMAppA" 
+        [class.invalid]="(control!.invalid || control?.value.length == 3 ) && (control!.dirty || control!.touched)"
+        [formControlName]="controlName"
+        aria-label="Default select example">
+        <option selected hidden> {{ defaultValue }} </option>
+        <option *ngFor="let item of items; let i=index" [value]="i">{{ item }}</option>
+    </select>
+    <fa-icon class="bSBwaw" [icon]="down"></fa-icon>
+</div>

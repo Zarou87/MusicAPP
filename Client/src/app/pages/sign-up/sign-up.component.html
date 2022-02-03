@@ -1,0 +1,33 @@
+<div class="signUp-container">
+    <div class="header-container">
+        <a class="isuMApp" [routerLink]="['/']" >MusicApp</a>
+        <h2 class="tsuMApp">Regístrate gratis para escuchar.</h2>
+    </div>
+
+    <div class="btnCSU">
+        <button class="ext-signup fbAMapp" (click)="facebookSignUp()">
+            <p>
+                Registrarse con Facebook
+            </p>
+        </button>
+    </div>
+    
+    <div class="btnCSU">
+        <button class="ext-signup gAMapp" (click)="googleSignUp()">
+            <fa-icon class="iconAMApp" [icon]="iGoogle"></fa-icon>
+            <p>
+                Registrarse con Google
+            </p>
+        </button>
+    </div>
+    
+    <div class="eNpoUx">
+        <hr class="eUplwz"/>
+        <span class="kdiUmk">o</span>
+        <hr class="eUplwz"/>
+    </div>
+
+    <div class="signUp-form">
+        <app-sign-up-form (userEventEmiter)="signUp($event)"></app-sign-up-form>
+    </div>
+</div>

@@ -1,0 +1,178 @@
+<form [formGroup]="signUpForm" (submit)="onSubmit()">
+
+    <h2 class="tsufMApp">Registrarte con tu correo electrónico</h2>
+    <div class="form-group">
+        <label>¿Cuál es tu correo electrónico?</label>
+        <input 
+            type="text" 
+            [class.invalid]="email!.invalid && (email!.dirty || email!.touched)"
+            class="iMAppA" 
+            formControlName="email" 
+            placeholder="Pon tu correo electrónico." >
+        <app-mapp-label-error 
+            [condition]="email!.invalid && (email!.dirty || email!.touched)"
+            [iconType]="0">
+            <ng-container *ngIf="email?.errors?.['required']">
+                Es necesario que indiques tu correo electrónico.
+            </ng-container>
+            <ng-container *ngIf="email?.errors?.['pattern']">
+                Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com
+            </ng-container>  
+        </app-mapp-label-error>
+    </div>
+
+    <div class="form-group">
+        <label>Confirma el correo electrónico</label>
+        <input 
+            type="text" 
+            class="iMAppA" 
+            [class.invalid]="confirmEmail!.invalid && (confirmEmail!.dirty || confirmEmail!.touched)"
+            formControlName="confirmEmail" 
+            placeholder="Vuelva a poner tu correo electrónico." >
+        <app-mapp-label-error 
+            [condition]="confirmEmail!.invalid && (confirmEmail!.dirty || confirmEmail!.touched)"
+            [iconType]="0">
+            <ng-container *ngIf="confirmEmail?.errors?.['required']">
+                Es necesario que confirmes tu correo electrónico.
+            </ng-container>
+            <ng-container *ngIf="confirmEmail?.errors?.['notSame']">
+                El email debe coincidir.
+            </ng-container> 
+        </app-mapp-label-error>
+    </div>
+
+    <div class="form-group">
+        <label>Crea una contraseña</label>
+        <input 
+            type="password" 
+            class="iMAppA" 
+            [class.invalid]="password!.invalid && (password!.dirty || password!.touched)"
+            formControlName="password" 
+            placeholder="Crea una contraseña." >
+        <app-mapp-label-error 
+            [condition]="password!.invalid && (password!.dirty || password!.touched)"
+            [iconType]="0">
+            <ng-container *ngIf="password?.errors?.['required']">
+                Es necesario que indiques una contraseña.
+            </ng-container>
+            <ng-container *ngIf="password?.errors?.['minlength']">
+                La contraseña debe contener al menos {{ password?.errors?.['minlength'].requiredLength}} caracteres.
+            </ng-container>
+        </app-mapp-label-error>
+    </div>
+    
+    <div class="form-group">
+        <label>¿Cómo quieres que te llamemos?</label>
+        <input 
+            type="text" 
+            class="iMAppA" 
+            [class.invalid]="username!.invalid && (username!.dirty || username!.touched)"
+            formControlName="username" 
+            placeholder="Pon un nombre de perfil." >
+        <app-mapp-label-error 
+            [condition]="username!.invalid && (username!.dirty || username!.touched)"
+            [iconType]="0">
+            Indica un nombre para tu perfil.
+        </app-mapp-label-error>
+    </div>
+
+    <div class="birthday">
+        <label>¿Cuál es tu fecha de nacimiento?</label>
+        <mapp-date-input [formGroup]="birthday"></mapp-date-input>
+        <app-mapp-label-error 
+            [condition]="day!.invalid && (day!.dirty || day!.touched)"
+            [iconType]="0">
+            <ng-container *ngIf="day?.errors?.['required']">
+                Indica el día del mes de tú nacimiento.
+            </ng-container>
+            <ng-container *ngIf="day?.errors?.['pattern'] || day?.errors?.['invalidDay']">
+                Indica un día válido del mes.
+            </ng-container>
+        </app-mapp-label-error>
+        <app-mapp-label-error 
+            [condition]="(month!.invalid || month?.value.length == 3) && (month!.dirty || month!.touched)"
+            [iconType]="0">
+                Selecciona tu mes de nacimiento.
+        </app-mapp-label-error>
+        <app-mapp-label-error 
+            [condition]="year!.invalid && (year!.dirty || year!.touched)"
+            [iconType]="0">
+            <ng-container *ngIf="year?.errors?.['required']">
+                Indica el año de tú nacimiento.
+            </ng-container>
+            <ng-container *ngIf="year?.errors?.['pattern']">
+                Indica un año válido.
+            </ng-container>
+            <ng-container *ngIf="year?.errors?.['min'] || year?.errors?.['max'] ">
+                Lo sentimos, pero no cumples los requisitos de edad de MusicApp.
+            </ng-container>
+        </app-mapp-label-error>
+    </div>
+
+    <div class="pb-4">
+        <label>¿Cuál es tu género?</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio1" value="Hombre">
+            <label class="lr-MApp" for="inlineRadio1">Hombre</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio2" value="Mujer">
+            <label class="lr-MApp" for="inlineRadio2">Mujer</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio3" value="No binario">
+            <label class="lr-MApp" for="inlineRadio3">No binario</label>
+          </div>
+          <app-mapp-label-error 
+            [condition]="gender!.invalid && (gender!.dirty || gender!.touched)"
+            [iconType]="0">
+            Selecciona tu género.
+        </app-mapp-label-error>
+    </div>
+    
+    <div class="pb-4">
+        <div class="form-check">
+            <input class="form-check-input" formControlName="subsNewsOffers" type="checkbox" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Quiero que me enviéis novedades y ofertas de Spotify
+            </label>
+        </div>
+    </div>
+
+    <div class="pb-4">
+        <div class="form-check">
+            <input class="form-check-input" formControlName="borrowPersonalData" type="checkbox" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">
+                Compartir mis datos de registro con los proveedores de contenidos de MusicApp para fines de marketing. Ten en cuenta que tus datos pueden ser transferidos a un país de fuera del EEE, tal y como se recoge en nuestra Política de Privacidad.
+            </label>
+        </div>
+    </div>
+
+    <div class="pb-4">
+        <re-captcha 
+            formControlName="recaptcha" 
+            [class.is-invalid]="recaptcha!.invalid && (recaptcha!.dirty || recaptcha!.touched)">
+        </re-captcha>
+        <app-mapp-label-error 
+            [condition]="recaptcha!.invalid && (recaptcha!.dirty || recaptcha!.touched)"
+            [iconType]="0">
+            Confirma que no eres un robot.
+    </app-mapp-label-error>
+    </div>
+    
+    <div class="signup-footer">
+        <div class="btnCSU">
+            <button class="ext-signup suMapp" type="submit">
+                <div class="btn-container">
+                    <p class="bMApp giKhHg">Registrarte</p>
+                </div>
+            </button>
+        </div>
+        
+        <p class="fvxMUg">
+            <span>¿Ya tienes cuenta? <a [routerLink]="['/login']">Inicia sesión</a>.
+            </span>
+        </p>
+    </div>
+
+</form>
