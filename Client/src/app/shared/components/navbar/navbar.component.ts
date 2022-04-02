@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 // ViewEncapsulation
 @Component({
@@ -9,6 +9,8 @@ import { Component, HostListener } from '@angular/core';
 export class NavbarComponent {
   public isOpen: boolean = false;
   public actionName: string = 'Open navigation menu.';
+
+  @Input() isAuthenticated: boolean = false;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {

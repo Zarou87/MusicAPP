@@ -6,6 +6,7 @@ export const PATHS = {
 
 // Used for routing
 export const ROUTE_PATH = {
+  HOME: '/',
   LOGIN: `/${PATHS.LOGIN}`,
   SIGNUP: `/${PATHS.SIGNUP}`,
 };

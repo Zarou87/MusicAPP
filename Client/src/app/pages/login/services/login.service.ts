@@ -1,25 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { User } from 'src/app/core/models/user.model';
 import { ApiMusicAppService } from 'src/app/core/services/api-musicApp/api-musicApp.service';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { logIn } from 'src/app/store/actions/auth.action';
+import { AppState } from 'src/app/store/app.states';
 
 @Injectable()
 export class LoginService {
   constructor(
     private apiMusicAppService: ApiMusicAppService,
-    private authService: AuthService
+    private store: Store<AppState>
   ) {}
 
-  login(req: User) {
-    this.apiMusicAppService.login(req).subscribe((res) => {
-      console.log(res);
-
-      // const errorMsg = <any>error;
-
-      // if (errorMsg != null) {
-      //   const message: string = JSON.parse(error._body);
-      //   console.log('message', message);
-      // }
-    });
+  login(payload: User) {
+    this.store.dispatch(logIn({ payload }));
   }
 }

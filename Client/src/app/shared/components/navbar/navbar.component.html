@@ -1,12 +1,10 @@
 <div id="navbar" class="" [ngClass]="{'open': isOpen }">
     <nav class="navbar-container">
-        <div type="button" class="me-auto" (click)="eventToggle()" id="nav-icon-toggle" [attr.aria-label]="actionName">
-            <span></span>
-        </div>
         <a href="/" class="home-link">
-            <div class="navbar-logo"></div>
+            <!-- <div class="navbar-logo"></div> -->
             MusicApp
         </a>
+        
         <div class="navbar-menu">
             <div class="nav-gd-main">
                 <ul class="nav-gd-items">
@@ -28,7 +26,7 @@
                 </ul>
             </div>
             <div class="nav-gd-extension">
-                <ul class="nav-gd-items">
+                <ul *ngIf="!isAuthenticated" class="nav-gd-items">
                     <li class="nav-gd-item">
                         <a class="nav-gd-link" [routerLink]="['/sign-up']">
                             <span class="nav-gd-link-text">Registrarse</span>
@@ -41,6 +39,9 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div type="button" class="me-auto" (click)="eventToggle()" id="nav-icon-toggle" [attr.aria-label]="actionName">
+            <span></span>
         </div>
     </nav>
 </div>
