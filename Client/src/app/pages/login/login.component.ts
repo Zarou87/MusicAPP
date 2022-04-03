@@ -9,6 +9,9 @@ import {
   faGoogle,
 } from '@fortawesome/free-brands-svg-icons';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.states';
+import * as authSelectors from 'src/app/store/selectors/auth.selector';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +24,20 @@ export class LoginComponent implements OnInit {
   iGoogle = faGoogle;
   iAlertDanger = faExclamationCircle;
 
-  public displayAlert: boolean = false;
+  // public displayAlert: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit(): void {
-    this.displayAlert = false;
+    this.store
+      .select(authSelectors.getStateAuthentication)
+      .subscribe((b) => console.log('isAuthenticated', b));
+    this.store.subscribe((auth) => console.log('auth', auth));
+    // this.displayAlert = false;
   }
 
   login(obj: any) {

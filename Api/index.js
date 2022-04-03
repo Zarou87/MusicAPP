@@ -20,6 +20,7 @@ const uri = config.URI_DATABASE;
 
 mongoose.connect(uri, (err, res) => {
   if (err) {
+    console.log("err", err);
     throw err;
   } else {
     console.log("BBDD Connected!!!");

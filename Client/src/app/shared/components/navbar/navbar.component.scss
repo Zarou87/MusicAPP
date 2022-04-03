@@ -7,7 +7,8 @@ $logo-width-expanded: 15%;
 .navbar-container {
   /*     justify-content: space-between; */
   height: 100%;
-  margin: 0 135px;
+  width: 85%;
+  margin: 0 auto;
   padding: 0 14px;
   display: flex;
   justify-content: space-between;
@@ -28,14 +29,20 @@ $logo-width-expanded: 15%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
+.navbar-icon-container {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
 /******** BEGIN NAVBAR ICON *********/
 
 #navbar {
   #nav-icon-toggle {
     width: 24px;
     height: 24px;
-    padding-left: 2px;
     position: relative;
+    margin: 0 !important;
     cursor: pointer;
     span,
     span::before,
@@ -116,6 +123,7 @@ $logo-width-expanded: 15%;
       padding-bottom: 1em;
       box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
       .nav-gd-items {
+        width: 100%;
         list-style-type: none;
         overflow: hidden;
         display: inline-flex;
@@ -124,7 +132,14 @@ $logo-width-expanded: 15%;
         box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
         margin: 0;
         .nav-gd-item {
+          cursor: pointer;
           margin: 0;
+        }
+        .nav-auth {
+          display: none;
+        }
+        .nav-auth-responsive {
+          display: block;
         }
       }
     }
@@ -148,6 +163,10 @@ $logo-width-expanded: 15%;
   color: $navbar-text-color;
   transition: color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 
 .home-link {
@@ -179,7 +198,8 @@ $logo-width-expanded: 15%;
     .home-link {
       width: $logo-width-expanded;
     }
-    #nav-icon-toggle {
+
+    .navbar-icon-container {
       display: none;
     }
     .navbar-menu {
@@ -212,12 +232,19 @@ $logo-width-expanded: 15%;
             margin: auto 17px;
             color: #fff;
           }
+
+          .nav-auth {
+            display: block;
+          }
+          .nav-auth-responsive {
+            display: none;
+          }
         }
       }
       .nav-gd-main {
         display: flex;
         &::after {
-          margin: 20px 17px;
+          margin: 25px 17px;
           width: 1px;
           content: "|";
           font-size: 1.2rem;
@@ -226,5 +253,13 @@ $logo-width-expanded: 15%;
         }
       }
     }
+  }
+}
+
+::ng-deep .nav-gd-link {
+  .p-avatar.p-avatar-circle {
+    height: 40px;
+    width: 40px;
+    margin-right: 16px;
   }
 }
