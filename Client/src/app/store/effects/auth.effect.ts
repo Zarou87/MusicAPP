@@ -29,7 +29,7 @@ export class AuthEffects {
 
   signUp$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AuthActionTypes.LOGIN),
+      ofType(AuthActionTypes.SIGNUP),
       mergeMap((action: any) =>
         this.apiMAppService.register(action.payload).pipe(
           map((resp) => {

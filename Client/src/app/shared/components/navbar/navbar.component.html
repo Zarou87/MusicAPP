@@ -26,7 +26,7 @@
                 </ul>
             </div>
             <div class="nav-gd-extension">
-                <ul *ngIf="!isAuthenticated" class="nav-gd-items">
+                <ul *ngIf="!user" class="nav-gd-items">
                     <li class="nav-gd-item">
                         <a class="nav-gd-link" [routerLink]="['/sign-up']">
                             <span class="nav-gd-link-text">Registrarse</span>
@@ -38,10 +38,31 @@
                         </a>
                     </li>
                 </ul>
+                <ul *ngIf="user" class="nav-gd-items">
+                    <li class="nav-gd-item">
+                        <div class="nav-gd-link nav-auth">
+                            <p-avatar [label]="user.username[0] | uppercase" size="xlarge" [style]="{'background-color':'#2196F3', 'color': '#ffffff'}" shape="circle"></p-avatar>
+                            <span class="mr-2">Perfil</span>
+                        </div>
+                    </li>
+                    <li class="nav-gd-item">
+                        <div class="nav-gd-link nav-auth-responsive">
+                            <span class="mr-2">Cuenta</span>
+                        </div>
+                    </li>
+                    <li class="nav-gd-item">
+                        <div class="nav-gd-link nav-auth-responsive" (click)="logout()">
+                            <span class="mr-2">Cerrar sessión</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div type="button" class="me-auto" (click)="eventToggle()" id="nav-icon-toggle" [attr.aria-label]="actionName">
-            <span></span>
+        <div class="navbar-icon-container">
+            <p-avatar *ngIf="user" [label]="user.username[0] | uppercase" size="xlarge" [style]="{'background-color':'#2196F3', 'color': '#ffffff'}" shape="circle"></p-avatar>
+            <div type="button" class="me-auto" (click)="eventToggle()" id="nav-icon-toggle" [attr.aria-label]="actionName">
+                <span></span>
+            </div>
         </div>
     </nav>
 </div>

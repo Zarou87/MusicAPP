@@ -4,7 +4,7 @@ import { AppState } from 'src/app/store/app.states';
 import { LOCAL_STORAGE } from '../../const/app.conts';
 import * as authActions from 'src/app/store/actions/auth.action';
 import * as authSelectors from 'src/app/store/selectors/auth.selector';
-import { first, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../../models/user.model';
 
 @Injectable({ providedIn: 'root' })
@@ -40,10 +40,10 @@ export class AuthService {
   }
 
   getUser(): Observable<User | null> {
-    return this.store.select(authSelectors.getStateUser).pipe(first());
+    return this.store.select(authSelectors.getStateUser);
   }
 
   getError(): Observable<string | null> {
-    return this.store.select(authSelectors.getStateError).pipe(first());
+    return this.store.select(authSelectors.getStateError);
   }
 }

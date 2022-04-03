@@ -29,6 +29,12 @@ $logo-width-expanded: 15%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
+.navbar-icon-container {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
 /******** BEGIN NAVBAR ICON *********/
 
 #navbar {
@@ -126,7 +132,14 @@ $logo-width-expanded: 15%;
         box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
         margin: 0;
         .nav-gd-item {
+          cursor: pointer;
           margin: 0;
+        }
+        .nav-auth {
+          display: none;
+        }
+        .nav-auth-responsive {
+          display: block;
         }
       }
     }
@@ -185,7 +198,8 @@ $logo-width-expanded: 15%;
     .home-link {
       width: $logo-width-expanded;
     }
-    #nav-icon-toggle {
+
+    .navbar-icon-container {
       display: none;
     }
     .navbar-menu {
@@ -218,12 +232,19 @@ $logo-width-expanded: 15%;
             margin: auto 17px;
             color: #fff;
           }
+
+          .nav-auth {
+            display: block;
+          }
+          .nav-auth-responsive {
+            display: none;
+          }
         }
       }
       .nav-gd-main {
         display: flex;
         &::after {
-          margin: 20px 17px;
+          margin: 25px 17px;
           width: 1px;
           content: "|";
           font-size: 1.2rem;
@@ -232,5 +253,13 @@ $logo-width-expanded: 15%;
         }
       }
     }
+  }
+}
+
+::ng-deep .nav-gd-link {
+  .p-avatar.p-avatar-circle {
+    height: 40px;
+    width: 40px;
+    margin-right: 16px;
   }
 }

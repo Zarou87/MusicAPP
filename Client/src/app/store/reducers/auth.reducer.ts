@@ -28,7 +28,7 @@ const _authReducer = createReducer(
     };
   }),
   on(action.logOutSuccess, (state) => {
-    return { ...state, initialState };
+    return { ...state, isAuthenticated: false, user: null, errorMsg: null };
   })
 );
 

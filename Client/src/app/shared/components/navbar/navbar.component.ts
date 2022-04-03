@@ -1,4 +1,11 @@
-import { Component, HostListener, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
+import { User } from 'src/app/core/models/user.model';
 
 // ViewEncapsulation
 @Component({
@@ -10,7 +17,10 @@ export class NavbarComponent {
   public isOpen: boolean = false;
   public actionName: string = 'Open navigation menu.';
 
-  @Input() isAuthenticated: boolean = false;
+  @Input() user: User | null = null;
+
+  @Output() public logoutEventEmitter: EventEmitter<boolean> =
+    new EventEmitter();
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -28,5 +38,9 @@ export class NavbarComponent {
       this.actionName = 'Open navigation menu.';
     }
     this.isOpen = !this.isOpen;
+  }
+
+  public logout() {
+    this.logoutEventEmitter.emit(true);
   }
 }

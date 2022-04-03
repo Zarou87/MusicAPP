@@ -16,7 +16,7 @@ export const logIn = createAction(
   props<{ payload: User }>()
 );
 export const SignUp = createAction(
-  AuthActionTypes.LOGIN,
+  AuthActionTypes.SIGNUP,
   props<{ payload: User }>()
 );
 
@@ -29,6 +29,6 @@ export const authError = createAction(
   props<{ error: any }>()
 );
 
-export const logOut = createAction(AuthActionTypes.LOGIN);
+export const logOut = createAction(AuthActionTypes.LOGOUT);
 
 export const logOutSuccess = createAction(AuthActionTypes.LOGOUT_SUCCESS);

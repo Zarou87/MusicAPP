@@ -8,6 +8,7 @@ import { MAppInputDateComponent } from './components/mapp-date-input/mapp-date-i
 import { MAppSelectComponent } from './components/mapp-select/mapp-select.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { PrimeNgModule } from '../core/primeng.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    PrimeNgModule,
   ],
   exports: [
     NavbarComponent,

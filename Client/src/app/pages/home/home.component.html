@@ -1,2 +1,2 @@
-<app-navbar></app-navbar>
+<app-navbar [user]="auth" (logoutEventEmitter)="logOut($event)"></app-navbar>
 <div class="body-container"></div>
